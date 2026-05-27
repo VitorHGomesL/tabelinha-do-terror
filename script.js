@@ -1,24 +1,27 @@
-const TABELA = document.getElementById("tabelaNotas")
-const COLUNAS = TABELA.rows[0].cells.length - 1
+const TABELA = document.getElementById("tabelaNotasInput")
+const COLUNAS_INICIAL = TABELA.rows[0].cells.length - 1
+
 const MEDIA_MINIMA = 6
 let clicks = 0
 
 function adicionarColuna(){
+
+
     clicks++
     let cell = 4
     for (let i = 0; i < TABELA.rows.length; i++) {
-        let novaCelula = TABELA.rows[i].insertCell(3);
+        let novaCelula = TABELA.rows[i].insertCell(TABELA.rows[i].cells.length - 1);
          
         if (i === 0){
-            novaCelula.innerHTML = "<th><b> AF"+ ((COLUNAS -2) + clicks) + "</b><th>"
+            novaCelula.innerHTML = '<th class="input"><b> AF'+ ((COLUNAS_INICIAL -2) + clicks) + '</b><th>'
         } else{
             
             let idLinha = TABELA.rows[i].id
-            let novoId = idLinha + "af_" + ((COLUNAS - 4) + clicks)
-            let novoPlaceHolder = "AF" + ((COLUNAS - 2) + clicks)
-            let novoHTML = '<input type="text" id="' + novoId + '" placeholder="' + novoPlaceHolder +'">'
+            let novoId = idLinha + "af_" + ((COLUNAS_INICIAL - 4) + clicks)
+            let novoPlaceHolder = "AF" + ((COLUNAS_INICIAL - 2) + clicks)
+            let novoHTML = '<td class="input"> <input type="text" id="' + novoId + '" placeholder="' + novoPlaceHolder +'"></td>'
             //console.log(novoHTML)
-            //console.log(COLUNAS)
+            //console.log(COLUNAS_INICIAL)
             novaCelula.innerHTML = novoHTML;
         }
     }
@@ -29,7 +32,7 @@ function removerColuna(){
     clicks--
     if (clicks >= 0){
         for (let i = 0; i < TABELA.rows.length; i++){
-            TABELA.rows[i].deleteCell(COLUNAS)
+            TABELA.rows[i].deleteCell(COLUNAS_INICIAL)
         }
         
     } else{
@@ -39,93 +42,31 @@ function removerColuna(){
     console.log(clicks)
 }
 
+function tabelaMatriz(){
+let tabelaMatriz = []
 
-function identificarNotas(){
-    // Redes de Computadores
-    let n1Redes = parseFloat(document.getElementById("redes_n1").value);
-    let afRedes = parseFloat(document.getElementById("redes_af").value);
-    //let n3Redes = parseFloat(document.getElementById("redes_n3").value);
+for (let i = 1; i < TABELA.rows.length; i++){
+    let linhaMatriz = []
+    let inputs = TABELA.rows[i].querySelectorAll("input");
 
-    if (Number.isNaN(n1Redes)){
-        n1Redes = -1
-    } 
-    if (Number.isNaN(afRedes)){
-        afRedes = -1
-    } 
+    inputs.forEach(input => {
+        let valor = parseFloat(input.value) || -1;
+        linhaMatriz.push(valor);
+    });
 
-    // Projeto de Extensão
-    let n1Projeto = parseFloat(document.getElementById("projeto_n1").value);
-    let afProjeto = parseFloat(document.getElementById("projeto_af").value);
-    //let n3Projeto = parseFloat(document.getElementById("projeto_n3").value);
-
-    if (Number.isNaN(n1Projeto)){
-        n1Projeto = -1
-    } 
-    if (Number.isNaN(afProjeto)){
-        afProjeto = -1
-    } 
-
-    // Arquitetura de Computadores
-    let n1Arq = parseFloat(document.getElementById("arq_n1").value);
-    let afArq = parseFloat(document.getElementById("arq_af").value);
-    //let n3Arq = parseFloat(document.getElementById("arq_n3").value);
-
-    if (Number.isNaN(n1Arq)){
-        n1Arq = -1
-    } 
-    if (Number.isNaN(afArq)){
-        afArq = -1
-    } 
-
-    // Lógica aplicada a computação
-    let n1Logica = parseFloat(document.getElementById("logica_n1").value);
-    let afLogica = parseFloat(document.getElementById("logica_af").value);
-    //let n3Logica = parseFloat(document.getElementById("logica_n3").value);
-
-    if (Number.isNaN(n1Logica)){
-        n1Logica = -1
-    } 
-    if (Number.isNaN(afLogica)){
-        afLogica = -1
-    } 
-
-    // Algoritmos e Linguagem de Programação
-    let n1Alg = parseFloat(document.getElementById("alg_n1").value);
-    let afAlg = parseFloat(document.getElementById("alg_af").value);
-    //let n3Alg = parseFloat(document.getElementById("alg_n3").value);
-
-    if (Number.isNaN(n1Alg)){
-        n1Alg = -1
-    } 
-    if (Number.isNaN(afAlg)){
-        afAlg = -1
-    }    
-
-
-    notas = {
-        //Redes de Computadores
-        notasRedes: [n1Redes, afRedes],
-
-        //Projeto de Extensão
-        notasProjeto: [n1Projeto, afProjeto],
-
-        //Arquitetura de computadores
-        notasArq: [n1Arq, afArq],
-
-        //Logica aplicada a computação
-        notasLogica: [n1Logica, afLogica],
-
-        //Algoritmos
-        notasAlg: [n1Alg, afAlg]
-    }
-    return notas
+    tabelaMatriz.push(linhaMatriz);
 
 }
+
+    return tabelaMatriz     
+}
+
+
 
 function calcularMedia(notas){
     //Calculo da média de redes
     let totalRedes = 0;
-    notasRedes = notas.notasRedes
+    notasRedes = tabelaMatriz()[0]
     for (let i= 0; i < notasRedes.length; i++){
         totalRedes += notasRedes[i];
     }
@@ -135,7 +76,7 @@ function calcularMedia(notas){
 
     //Calculo da média de Projeto de Extensão
     let totalProjeto = 0;
-    notasProjeto = notas.notasProjeto
+    notasProjeto = tabelaMatriz()[1]
     for (let i= 0; i < notasProjeto.length; i++){
         totalProjeto += notasProjeto[i];
     }
@@ -145,7 +86,7 @@ function calcularMedia(notas){
     
     //Calculo da média de Arquitetura
     let totalArq = 0;
-    notasArq = notas.notasArq
+    notasArq = tabelaMatriz()[2]
     for (let i= 0; i < notasArq.length; i++){
         totalArq += notasArq[i];
     }
@@ -155,7 +96,7 @@ function calcularMedia(notas){
     
     //Calculo da media de Lógica
     let totalLogica = 0;
-    notasLogica = notas.notasLogica
+    notasLogica = tabelaMatriz()[3]
     for (let i= 0; i < notasLogica.length; i++){
         totalLogica += notasLogica[i];
     }
@@ -166,7 +107,7 @@ function calcularMedia(notas){
 
     //Calculo da nota de Algoritmos
     let totalAlg = 0;
-    notasAlg = notas.notasAlg
+    notasAlg = tabelaMatriz()[4]
     for (let i= 0; i < notasAlg.length; i++){
         totalAlg += notasAlg[i];
     }
@@ -181,19 +122,28 @@ function calcularMedia(notas){
 }
 
 
-function exibirNotas(medias){
+function exibirResultado(medias){
 
-let mediaRedes = medias[0]
-let mediaProjeto = medias[1]
-let mediaArq  = medias[2]
-let mediaLogica = medias[3]
-let mediaAlg = medias[4]
+let mediaRedes = medias[0].toFixed(2)
+let mediaProjeto = medias[1].toFixed(2)
+let mediaArq  = medias[2].toFixed(2)
+let mediaLogica = medias[3].toFixed(2)
+let mediaAlg = medias[4].toFixed(2)
 
-/*campoNotaRedes = document.getElementById("nota_final_redes")
-campoNotaRedes.innerHTML = mediaRedes
-console.log(medias[0])*/
+let exibicao
 
-let exibicao = `
+if (
+mediaRedes < 0 || mediaRedes > 10 ||
+mediaProjeto < 0 || mediaProjeto > 10 ||
+mediaArq < 0 || mediaArq > 10 ||
+mediaLogica < 0 || mediaLogica > 10 ||
+mediaAlg < 0 || mediaAlg > 10
+)
+{
+alert("Insira valores entre 0 e 10!")
+exibicao = ``
+} else{
+exibicao = `
     <h1>MÉDIA DAS NOTAS INSERIDAS: </h1>
     <table class="tabelaNotas">
         <thead>
@@ -225,7 +175,15 @@ let exibicao = `
                         </tr>
                     </tbody>
                 </table>
-`;
+`;    
+}
+
+
+/*campoNotaRedes = document.getElementById("nota_final_redes")
+campoNotaRedes.innerHTML = mediaRedes
+console.log(medias[0])*/
+
+
 area_exibicao = document.getElementById("area_exibicao")
 
 area_exibicao.innerHTML = exibicao
@@ -233,10 +191,8 @@ area_exibicao.innerHTML = exibicao
 }
 
 
-
 function main(){
-    notas = identificarNotas()
-    medias = calcularMedia(notas)
-    exibirNotas(medias)
-
+    tabela = tabelaMatriz()
+    medias = calcularMedia(tabela)
+    exibirResultado(medias)
 }

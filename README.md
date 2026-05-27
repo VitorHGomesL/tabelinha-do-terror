@@ -42,12 +42,34 @@ O projeto está em constante desenvolvimento. As próximas etapas de implementa�
 - [ ] **UI/UX Refinement:** Aperfeiçoamento da estilização CSS utilizando conceitos de design responsivo, variáveis CSS e melhorias na identidade visual.
 - [ ] **Validador de Status Acadêmico:** Implementação de função lógica para verificar automaticamente se o estudante está "Aprovado" ou "Reprovado" com base na média mínima.
 - [ ] **Preditor de Nota Mínima (N3):** Desenvolvimento de um algoritmo que, em caso de reprovação prévia, calcule de forma exata a nota mínima necessária na avaliação subsequente (N3) para atingir a aprovação.
-- [ ] **Módulo Avançado de AFs:** Refatoração da lógica de cálculo para computar a média aritmética ou ponderada exclusivamente das novas colunas de AF adicionadas dinamicamente, consolidando o fluxo atualmente em *Work In Progress* (WIP).
-- [ ] **Correção de Bug (DOM Rendering):** Ajustar a ordem de renderização na função de criação de colunas dinâmicas, corrigindo o comportamento atual onde as novas colunas de AF são inseridas em ordem invertida na tabela.
+- [x] **Módulo Avançado de AFs:** Refatoração da lógica de cálculo para computar a média aritmética ou ponderada exclusivamente das novas colunas de AF adicionadas dinamicamente, consolidando o fluxo atualmente em *Work In Progress* (WIP).
+- [x] **Correção de Bug (DOM Rendering):** Ajustar a ordem de renderização na função de criação de colunas dinâmicas, corrigindo o comportamento atual onde as novas colunas de AF são inseridas em ordem invertida na tabela.
+
+---
+
+## 📜 Changelog
+
+### [0.7.0] - 2026-05-27
+#### ✨ Adicionado
+* Adicionado mensagem de erro quando são inseridos valores fora do intervalo 0-10
+
+#### ⚙️ Modificado / Otimizado
+
+* Ao invés de pegar os itens da tabela e os inserir em variáveis de maneira individual, de modo a se adaptar a função de adicionar as AFs, o sistema de armazenamento das variáveis foi alterado, agora funcionando através de uma matriz que simula automaticamente para o JS os dados inseridos na tabela da página web
+* Ajustes no Readme
+
+#### 🐛 Corrigido
+* corrigido bug que não permitia criação de novas tabelas
+* Corrigido a ordem criação e remoção de tabelas
+
 ---
 
 ## 🧑‍💻 Como Executar o Projeto
 
 1. Faça o clone deste repositório:
    ```bash
-   git clone [https://github.com/seu-usuario/tabelinha-do-terror.git](https://github.com/seu-usuario/tabelinha-do-terror.git)
+   git clone [https://github.com/vitorhgomesl/tabelinha-do-terror.git](https://github.com/seu-usuario/tabelinha-do-terror.git)
+
+    ou  
+
+    acesse: https://vitorhgomesl.github.io/TABELINHA-DO-TERROR-V2.0/

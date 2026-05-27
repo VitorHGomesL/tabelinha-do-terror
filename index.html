@@ -11,7 +11,7 @@
         <h1>TABELINHA DO TERROR</h1>
 
         <section class="card">
-            <table class="tabelaNotas">
+            <table class="tabelaNotas" id="tabelaNotasInput">
                 <thead>
                     <tr>
                         <th class="input">Disciplina</th>
@@ -62,18 +62,16 @@
 
             <br>
             <button onclick="main()"> Verificar </button>
+            <div id = "area_exibicao">
 
+            </div>
+        </section>            
             <p> ATENÇÃO! ALGUMAS INSTRUÇÕES IMPORTANTES:<br>
                 <br>1. AO ADICIONAR NOVAS AFS(WIP!!), O SISTEMA SOMENTE FAZ A MÉDIA ENTRE ELAS, CASO O PROFESSOR UTILIZE ALGUMA METODOLOGIA DIFERENTE, FAVOR CALCULAR MANUALMENTE E INSERIR EM UM CAMPO DE AF INDIVIDUAL<br>
                 <br>2. CASO A DISCIPLINA NÃO TENHA TIDO UMA QUANTIDADE DE AFS EQUIVALENTE A DA TABELA, PREENCHA COM "NA"<br>
                 <br>3. CASO NÃO SEJA INSERIDO NENHUM VALOR NOS INPUTS ACIMA, OU SEJA INSERIDO ALGO DIFERENTE DE UM NUMERO, O SISTEMA CORRIGIRA O VALOR ERRADO PARA -1, PARA EVITAR FALHAS
             </p>
             
-            <div id = "area_exibicao">
-
-            </div>
-
-        </section>
     </main>
 
     <script src="script.js"></script>
