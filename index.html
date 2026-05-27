@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABELINHA DO TERROR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <h1>TABELINHA DO TERROR</h1>
+
+        <section class="card">
+            <table class="tabelaNotas">
+                <thead>
+                    <tr>
+                        <th class="input">Disciplina</th>
+                        <th class="input">N1</th>
+                        <th class="input">AF</th>
+                        <th class="input">Adicionar <br> AFs (WIP!)</th>
+                        <!-- <th>N3</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="Redes_">
+                        <td class="input">Redes de Computadores</td>
+                        <td class="input"><input type="text" id="redes_n1" placeholder="N1"></td>
+                        <td class="input"><input type="text" id="redes_af" placeholder="AF"></td>
+                        <td class="input"><button onclick="adicionarColuna()"> + </button><button onclick="removerColuna()"> - </button></td>
+                        <!--  <td><input type="text" id="redes_n3" placeholder="N3"></td> --> 
+                    </tr>
+                    <tr id="projeto_">
+                        <td class="input">Projeto de Exensão</td>
+                        <td class="input"><input type="text" id="projeto_n1" placeholder="N1"></td>
+                        <td class="input"><input type="text" id="projeto_af" placeholder="AF"></td>
+                        <td class="input"><button onclick="adicionarColuna()"> + </button><button onclick="removerColuna()"> - </button></td>
+                        <!--  <td><input type="text" id="projeto_n3" placeholder="N3"></td> --> 
+                    </tr>
+                    <tr id="arq_">
+                        <td class="input">Arquitetura de Computadores</td>
+                        <td class="input"><input type="text" id="arq_n1" placeholder="N1"></td>
+                        <td class="input"><input type="text" id="arq_af" placeholder="AF"></td>
+                        <td class="input"><button onclick="adicionarColuna()"> + </button><button onclick="removerColuna()"> - </button></td>
+                        <!-- <td><input type="text" id="arq_n3" placeholder="N3"></td> --> 
+                    </tr>
+                    <tr id="logica_">
+                        <td class="input">Lógica aplicada a computação</td>
+                        <td class="input"><input type="text" id="logica_n1" placeholder="N1"></td>
+                        <td class="input"><input type="text" id="logica_af" placeholder="AF"></td>
+                        <td class="input"><button onclick="adicionarColuna()"> + </button><button onclick="removerColuna()"> - </button></td>
+                        <!-- <td><input type="text" id="logica_n3" placeholder="N3"></td> --> 
+                    </tr>
+                    <tr id="alg_">
+                        <td class="input">Algoritmos e Linguagem de Programação</td>
+                        <td class="input"><input type="text" id="alg_n1" placeholder="N1"></td>
+                        <td class="input"><input type="text" id="alg_af" placeholder="AF"></td>
+                        <td class="input"><button onclick="adicionarColuna()"> + </button><button onclick="removerColuna()"> - </button></td>
+                        <!-- <td><input type="text" id="alg_n3" placeholder="N3"></td> -->
+                    </tr>
+                </tbody>
+            </table>
+
+            <br>
+            <button onclick="main()"> Verificar </button>
+
+            <p> ATENÇÃO! ALGUMAS INSTRUÇÕES IMPORTANTES:<br>
+                <br>1. AO ADICIONAR NOVAS AFS(WIP!!), O SISTEMA SOMENTE FAZ A MÉDIA ENTRE ELAS, CASO O PROFESSOR UTILIZE ALGUMA METODOLOGIA DIFERENTE, FAVOR CALCULAR MANUALMENTE E INSERIR EM UM CAMPO DE AF INDIVIDUAL<br>
+                <br>2. CASO A DISCIPLINA NÃO TENHA TIDO UMA QUANTIDADE DE AFS EQUIVALENTE A DA TABELA, PREENCHA COM "NA"<br>
+                <br>3. CASO NÃO SEJA INSERIDO NENHUM VALOR NOS INPUTS ACIMA, OU SEJA INSERIDO ALGO DIFERENTE DE UM NUMERO, O SISTEMA CORRIGIRA O VALOR ERRADO PARA -1, PARA EVITAR FALHAS
+            </p>
+            
+            <div id = "area_exibicao">
+
+            </div>
+
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
