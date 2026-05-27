@@ -48,6 +48,15 @@ O projeto está em constante desenvolvimento. As próximas etapas de implementa�
 ---
 
 ## 📜 Changelog
+### [0.8.0] - 2026-05-27
+
+#### ✨ Adicionado
+* Adicionado função que realiza a verificação e alterações no CSS da página caso o aluno tenha sido aprovado/reprovado
+
+#### ⚙️ Modificado / Otimizado
+
+* Ajustes finos no CSS, o foco foi entender melhor/relembrar o funcionamento, então ainda não estou considerando que o item de UI/UX Refinement foi cumprido
+
 
 ### [0.7.0] - 2026-05-27
 #### ✨ Adicionado

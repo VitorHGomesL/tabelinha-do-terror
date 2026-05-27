@@ -26,35 +26,35 @@
                         <td class="input">Redes de Computadores</td>
                         <td class="input"><input type="text" id="redes_n1" placeholder="N1"></td>
                         <td class="input"><input type="text" id="redes_af" placeholder="AF"></td>
-                        <td class="input"><button onclick="adicionarColuna()"> + </button><button onclick="removerColuna()"> - </button></td>
+                        <td class="input"><button class="ajusteColunas" onclick="adicionarColuna()"> + </button><button class="ajusteColunas" onclick="removerColuna()"> - </button></td>
                         <!--  <td><input type="text" id="redes_n3" placeholder="N3"></td> --> 
                     </tr>
                     <tr id="projeto_">
                         <td class="input">Projeto de Exensão</td>
                         <td class="input"><input type="text" id="projeto_n1" placeholder="N1"></td>
                         <td class="input"><input type="text" id="projeto_af" placeholder="AF"></td>
-                        <td class="input"><button onclick="adicionarColuna()"> + </button><button onclick="removerColuna()"> - </button></td>
+                        <td class="input"><button class="ajusteColunas" onclick="adicionarColuna()"> + </button><button class="ajusteColunas" onclick="removerColuna()"> - </button></td>
                         <!--  <td><input type="text" id="projeto_n3" placeholder="N3"></td> --> 
                     </tr>
                     <tr id="arq_">
                         <td class="input">Arquitetura de Computadores</td>
                         <td class="input"><input type="text" id="arq_n1" placeholder="N1"></td>
                         <td class="input"><input type="text" id="arq_af" placeholder="AF"></td>
-                        <td class="input"><button onclick="adicionarColuna()"> + </button><button onclick="removerColuna()"> - </button></td>
+                        <td class="input"><button class="ajusteColunas" onclick="adicionarColuna()"> + </button><button class="ajusteColunas" onclick="removerColuna()"> - </button></td>
                         <!-- <td><input type="text" id="arq_n3" placeholder="N3"></td> --> 
                     </tr>
                     <tr id="logica_">
                         <td class="input">Lógica aplicada a computação</td>
                         <td class="input"><input type="text" id="logica_n1" placeholder="N1"></td>
                         <td class="input"><input type="text" id="logica_af" placeholder="AF"></td>
-                        <td class="input"><button onclick="adicionarColuna()"> + </button><button onclick="removerColuna()"> - </button></td>
+                        <td class="input"><button class="ajusteColunas" onclick="adicionarColuna()"> + </button><button class="ajusteColunas" onclick="removerColuna()"> - </button></td>
                         <!-- <td><input type="text" id="logica_n3" placeholder="N3"></td> --> 
                     </tr>
                     <tr id="alg_">
                         <td class="input">Algoritmos e Linguagem de Programação</td>
                         <td class="input"><input type="text" id="alg_n1" placeholder="N1"></td>
                         <td class="input"><input type="text" id="alg_af" placeholder="AF"></td>
-                        <td class="input"><button onclick="adicionarColuna()"> + </button><button onclick="removerColuna()"> - </button></td>
+                        <td class="input"><button class="ajusteColunas" onclick="adicionarColuna()"> + </button><button class="ajusteColunas" onclick="removerColuna()"> - </button></td>
                         <!-- <td><input type="text" id="alg_n3" placeholder="N3"></td> -->
                     </tr>
                 </tbody>
@@ -65,12 +65,21 @@
             <div id = "area_exibicao">
 
             </div>
+
+            <div id = CampoN3>
+                <div id="N3Redes"></div>
+                <div id="N3Projeto"></div>
+                <div id="N3Arq"></div>
+                <div id="N3Logica"></div>
+                <div id="N3Alg"></div>                
+            </div>
+
         </section>            
-            <p> ATENÇÃO! ALGUMAS INSTRUÇÕES IMPORTANTES:<br>
+            <h2> ATENÇÃO! ALGUMAS INSTRUÇÕES IMPORTANTES:<br>
                 <br>1. AO ADICIONAR NOVAS AFS(WIP!!), O SISTEMA SOMENTE FAZ A MÉDIA ENTRE ELAS, CASO O PROFESSOR UTILIZE ALGUMA METODOLOGIA DIFERENTE, FAVOR CALCULAR MANUALMENTE E INSERIR EM UM CAMPO DE AF INDIVIDUAL<br>
                 <br>2. CASO A DISCIPLINA NÃO TENHA TIDO UMA QUANTIDADE DE AFS EQUIVALENTE A DA TABELA, PREENCHA COM "NA"<br>
                 <br>3. CASO NÃO SEJA INSERIDO NENHUM VALOR NOS INPUTS ACIMA, OU SEJA INSERIDO ALGO DIFERENTE DE UM NUMERO, O SISTEMA CORRIGIRA O VALOR ERRADO PARA -1, PARA EVITAR FALHAS
-            </p>
+            </h2>
             
     </main>
 

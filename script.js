@@ -157,19 +157,19 @@ exibicao = `
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="output">
+                            <td class="output" id="resultadoRedes">
                                 ${mediaRedes}
                             </td>
-                            <td class="output">
+                            <td class="output" id="resultadoProjeto">
                                 ${mediaProjeto}
                             </td>
-                            <td class="output">
+                            <td class="output" id="resultadoArq">
                                 ${mediaArq}
                             </td>
-                            <td class="output">
+                            <td class="output" id="resultadoLogica">
                                 ${mediaLogica}
                             </td>     
-                            <td class="output">
+                            <td class="output" id="resultadoAlg">
                                 ${mediaAlg}
                             </td>                            
                         </tr>
@@ -190,9 +190,131 @@ area_exibicao.innerHTML = exibicao
 
 }
 
+function verificarAprovacao(medias){
+
+mediaRedes = medias[0].toFixed(2)
+mediaProjeto = medias[1].toFixed(2)
+mediaArq  = medias[2].toFixed(2)
+mediaLogica = medias[3].toFixed(2)
+mediaAlg = medias[4].toFixed(2)
+
+let resultadoRedes = false, resultadoProjeto = false, resultadoArq = false, resultadoLogica = false, resultadoAlg = false
+
+if (mediaRedes >= 6){
+
+    resultadoRedes = true
+}
+if (mediaProjeto >= 6){
+    resultadoProjeto = true
+}
+if (mediaArq >= 6){
+    resultadoArq = true
+}
+if (mediaLogica >= 6){
+    resultadoLogica = true
+}
+if (mediaAlg >= 6){
+    resultadoAlg = true
+}
+
+let aprovacoes = [resultadoRedes, resultadoProjeto, resultadoArq, resultadoLogica, resultadoAlg]
+
+return aprovacoes
+}
+
+
+function exibirAprovacao(medias){
+
+    const CAMPO_NOTA_REDES = document.getElementById("resultadoRedes")
+    const CAMPO_NOTA_PROJETO = document.getElementById("resultadoProjeto")
+    const CAMPO_NOTA_ARQ = document.getElementById("resultadoArq")   
+    const CAMPO_NOTA_LOGICA = document.getElementById("resultadoLogica")
+    const CAMPO_NOTA_ALG = document.getElementById("resultadoAlg")   
+
+
+    aprovacoes = verificarAprovacao(medias)
+
+    
+
+    //Alterar os campos da matéria de Redes baseado na aprovação
+    if (aprovacoes[0]){
+    CAMPO_NOTA_REDES.style.backgroundColor = "Green"
+    } else{
+    CAMPO_NOTA_REDES.style.backgroundColor = "Red"
+    }
+    //Alterar os campos da matéria de Projeto baseado na aprovação
+    if (aprovacoes[1]){
+    CAMPO_NOTA_PROJETO.style.backgroundColor = "Green"
+    } else{
+    CAMPO_NOTA_PROJETO.style.backgroundColor = "Red"
+    }
+    //Alterar os campos da matéria de Arquitetura baseado na aprovação
+    if (aprovacoes[2]){
+    CAMPO_NOTA_ARQ.style.backgroundColor = "Green"
+    } else{
+    CAMPO_NOTA_ARQ.style.backgroundColor = "Red"
+    }
+    //Alterar os campos da matéria de Logica baseado na aprovação
+    if (aprovacoes[3]){
+    CAMPO_NOTA_LOGICA.style.backgroundColor = "Green"
+    } else{
+    CAMPO_NOTA_LOGICA.style.backgroundColor = "Red"
+    }
+    //Alterar os campos da matéria de Algoritmos baseado na aprovação
+    if (aprovacoes[4]){
+    CAMPO_NOTA_ALG.style.backgroundColor = "Green"
+    } else{
+    CAMPO_NOTA_ALG.style.backgroundColor = "Red"
+    }
+}
+
+function exibirN3(medias){
+    aprovacoes = verificarAprovacao(medias)
+    const N3REDES = document.getElementById("N3Redes")
+    const N3PROJETO = document.getElementById("N3Projeto")
+    const N3ARQ = document.getElementById("N3Arq")
+    const N3LOGICA = document.getElementById("N3Logica")
+    const N3ALG = document.getElementById("N3Alg")
+    
+    let nota_restante_redes 
+    let nota_restante_projeto
+    let nota_restante_arq
+    let nota_restante_logica
+    let nota_restante_alg
+
+    //Alterar os campos da N3 de Redes baseado na aprovação   
+    
+    if (!aprovacoes[0]){
+        nota_restante_redes = 
+        N3REDES.innerHTML = "Você ainda precisa de " + nota_restante + "para passar em Redes"
+    } 
+
+
+    //Alterar os campos da N3 de Projeto baseado na aprovação
+    if (!aprovacoes[1]){
+    
+    }
+    
+    //Alterar os campos da N3 de Arquitetura baseado na aprovação
+    if (!aprovacoes[2]){
+    
+    } 
+
+    //Alterar os campos da N3 de Logica baseado na aprovação
+    if (!aprovacoes[3]){
+    
+    } 
+
+    //Alterar os campos da N3 de Algoritmos baseado na aprovação
+    if (!aprovacoes[4]){
+    
+    } 
+}
 
 function main(){
-    tabela = tabelaMatriz()
-    medias = calcularMedia(tabela)
+    let tabela = tabelaMatriz()
+    let medias = calcularMedia(tabela)
+    verificarAprovacao(medias)
     exibirResultado(medias)
+    exibirAprovacao(medias)
 }
