@@ -40,14 +40,22 @@ A aplicação foi estruturada utilizando o modelo clássico de desenvolvimento w
 O projeto está em constante desenvolvimento. As próximas etapas de implementação técnica incluem:
 
 - [ ] **UI/UX Refinement:** Aperfeiçoamento da estilização CSS utilizando conceitos de design responsivo, variáveis CSS e melhorias na identidade visual.
-- [ ] **Validador de Status Acadêmico:** Implementação de função lógica para verificar automaticamente se o estudante está "Aprovado" ou "Reprovado" com base na média mínima.
-- [ ] **Preditor de Nota Mínima (N3):** Desenvolvimento de um algoritmo que, em caso de reprovação prévia, calcule de forma exata a nota mínima necessária na avaliação subsequente (N3) para atingir a aprovação.
+- [x] **Validador de Status Acadêmico:** Implementação de função lógica para verificar automaticamente se o estudante está "Aprovado" ou "Reprovado" com base na média mínima.
+- [x] **Preditor de Nota Mínima (N3):** Desenvolvimento de um algoritmo que, em caso de reprovação prévia, calcule de forma exata a nota mínima necessária na avaliação subsequente (N3) para atingir a aprovação.
 - [x] **Módulo Avançado de AFs:** Refatoração da lógica de cálculo para computar a média aritmética ou ponderada exclusivamente das novas colunas de AF adicionadas dinamicamente, consolidando o fluxo atualmente em *Work In Progress* (WIP).
 - [x] **Correção de Bug (DOM Rendering):** Ajustar a ordem de renderização na função de criação de colunas dinâmicas, corrigindo o comportamento atual onde as novas colunas de AF são inseridas em ordem invertida na tabela.
 
 ---
 
 ## 📜 Changelog
+
+### [0.9.0] - 2026-05-28
+
+#### ✨ Adicionado
+* Adicionado função para verificar a necessidade de realizar a N3 e exibição(com foco em entender a lógica, sem aprimorar o código ou estilizar)
+
+
+
 ### [0.8.0] - 2026-05-27
 
 #### ✨ Adicionado
@@ -58,7 +66,9 @@ O projeto está em constante desenvolvimento. As próximas etapas de implementa�
 * Ajustes finos no CSS, o foco foi entender melhor/relembrar o funcionamento, então ainda não estou considerando que o item de UI/UX Refinement foi cumprido
 
 
+
 ### [0.7.0] - 2026-05-27
+
 #### ✨ Adicionado
 * Adicionado mensagem de erro quando são inseridos valores fora do intervalo 0-10
 
@@ -68,6 +78,7 @@ O projeto está em constante desenvolvimento. As próximas etapas de implementa�
 * Ajustes no Readme
 
 #### 🐛 Corrigido
+
 * corrigido bug que não permitia criação de novas tabelas
 * Corrigido a ordem criação e remoção de tabelas
 
@@ -77,8 +88,9 @@ O projeto está em constante desenvolvimento. As próximas etapas de implementa�
 
 1. Faça o clone deste repositório:
    ```bash
-   git clone [https://github.com/vitorhgomesl/tabelinha-do-terror.git](https://github.com/seu-usuario/tabelinha-do-terror.git)
+   git clone [https://github.com/VitorHGomesL/tabelinha-do-terror.git](https://github.com/VitorHGomesL/tabelinha-do-terror.git)
 
     ou  
 
-    acesse: https://vitorhgomesl.github.io/TABELINHA-DO-TERROR-V2.0/
+    acesse: https://vitorhgomesl.github.io/tabelinha-do-terror/
+    

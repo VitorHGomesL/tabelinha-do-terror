@@ -238,83 +238,146 @@ function exibirAprovacao(medias){
 
     //Alterar os campos da matéria de Redes baseado na aprovação
     if (aprovacoes[0]){
-    CAMPO_NOTA_REDES.style.backgroundColor = "Green"
+    CAMPO_NOTA_REDES.style.backgroundColor = "#8fb88f";
     } else{
-    CAMPO_NOTA_REDES.style.backgroundColor = "Red"
+    CAMPO_NOTA_REDES.style.backgroundColor = "#ff5252"
     }
     //Alterar os campos da matéria de Projeto baseado na aprovação
     if (aprovacoes[1]){
-    CAMPO_NOTA_PROJETO.style.backgroundColor = "Green"
+    CAMPO_NOTA_PROJETO.style.backgroundColor = "#8fb88f"
     } else{
-    CAMPO_NOTA_PROJETO.style.backgroundColor = "Red"
+    CAMPO_NOTA_PROJETO.style.backgroundColor = "#ff5252"
     }
     //Alterar os campos da matéria de Arquitetura baseado na aprovação
     if (aprovacoes[2]){
-    CAMPO_NOTA_ARQ.style.backgroundColor = "Green"
+    CAMPO_NOTA_ARQ.style.backgroundColor = "#8fb88f"
     } else{
-    CAMPO_NOTA_ARQ.style.backgroundColor = "Red"
+    CAMPO_NOTA_ARQ.style.backgroundColor = "#ff5252"
     }
     //Alterar os campos da matéria de Logica baseado na aprovação
     if (aprovacoes[3]){
-    CAMPO_NOTA_LOGICA.style.backgroundColor = "Green"
+    CAMPO_NOTA_LOGICA.style.backgroundColor = "#8fb88f"
     } else{
-    CAMPO_NOTA_LOGICA.style.backgroundColor = "Red"
+    CAMPO_NOTA_LOGICA.style.backgroundColor = "#ff5252"
     }
     //Alterar os campos da matéria de Algoritmos baseado na aprovação
     if (aprovacoes[4]){
-    CAMPO_NOTA_ALG.style.backgroundColor = "Green"
+    CAMPO_NOTA_ALG.style.backgroundColor = "#8fb88f"
     } else{
-    CAMPO_NOTA_ALG.style.backgroundColor = "Red"
+    CAMPO_NOTA_ALG.style.backgroundColor = "#ff5252"
     }
 }
 
-function exibirN3(medias){
-    aprovacoes = verificarAprovacao(medias)
+function necessarioN3(tabelaMatriz){
     const N3REDES = document.getElementById("N3Redes")
     const N3PROJETO = document.getElementById("N3Projeto")
     const N3ARQ = document.getElementById("N3Arq")
     const N3LOGICA = document.getElementById("N3Logica")
     const N3ALG = document.getElementById("N3Alg")
-    
-    let nota_restante_redes 
-    let nota_restante_projeto
-    let nota_restante_arq
-    let nota_restante_logica
-    let nota_restante_alg
 
-    //Alterar os campos da N3 de Redes baseado na aprovação   
+    let aprovacoes = verificarAprovacao(medias) 
     
+    
+    let N1Redes = tabelaMatriz[0][0]
+    let N1Projeto = tabelaMatriz[1][0]
+    let N1Arq = tabelaMatriz[2][0]
+    let N1Logica = tabelaMatriz[3][0]
+    let N1Alg = tabelaMatriz[4][0] 
+
+
+
+    //Se reprovado na matéria de Redes, calcula quanto precisará tirar na N3 para ter a aprovação
     if (!aprovacoes[0]){
-        nota_restante_redes = 
-        N3REDES.innerHTML = "Você ainda precisa de " + nota_restante + "para passar em Redes"
+        let somaAFRedes = 0
+        for(let i = 1; i < tabelaMatriz[0].length; i++){
+            somaAFRedes += tabelaMatriz[0][i]
+        }
+            mediaN2Redes = somaAFRedes / (tabelaMatriz[0].length - 1)
+
+        let maiorNotaRedes = Math.max(N1Redes, mediaN2Redes)
+
+        let notaNecessariaRedes = 12 - maiorNotaRedes       
+        N3REDES.innerHTML = "Você ainda precisa de " + notaNecessariaRedes + " na N3 para passar em Redes"
     } 
 
 
-    //Alterar os campos da N3 de Projeto baseado na aprovação
+    //Se reprovado na matéria de Projeto, calcula quanto precisará tirar na N3 para ter a aprovação
     if (!aprovacoes[1]){
-    
+        let somaAFProjeto = 0
+        for(let i = 1; i < tabelaMatriz[1].length; i++){
+            somaAFProjeto += tabelaMatriz[1][i]
+        }
+            mediaN2Projeto = somaAFProjeto / (tabelaMatriz[1].length - 1)
+
+        let maiorNotaProjeto = Math.max(N1Projeto, mediaN2Projeto)
+
+        let notaNecessariaProjeto = 12 - maiorNotaProjeto       
+        N3PROJETO.innerHTML = "Você ainda precisa de " + notaNecessariaProjeto + " na N3 para passar em Projeto"    
     }
     
     //Alterar os campos da N3 de Arquitetura baseado na aprovação
     if (!aprovacoes[2]){
-    
+        let somaAFArq = 0
+        for(let i = 1; i < tabelaMatriz[2].length; i++){
+            somaAFArq += tabelaMatriz[2][i]
+        }
+            mediaN2Arq = somaAFArq / (tabelaMatriz[2].length - 1)
+
+        let maiorNotaArq = Math.max(N1Arq, mediaN2Arq)
+
+        let notaNecessariaArq = 12 - maiorNotaArq       
+        N3ARQ.innerHTML = "Você ainda precisa de " + notaNecessariaArq + " na N3 para passar em Arquitetura"    
     } 
 
     //Alterar os campos da N3 de Logica baseado na aprovação
     if (!aprovacoes[3]){
-    
+        let somaAFLogica = 0
+        for(let i = 1; i < tabelaMatriz[3].length; i++){
+            somaAFLogica += tabelaMatriz[3][i]
+        }
+            mediaN2Logica = somaAFLogica / (tabelaMatriz[3].length - 1)
+
+        let maiorNotaLogica = Math.max(N1Logica, mediaN2Logica)
+
+        let notaNecessariaLogica = 12 - maiorNotaLogica       
+        N3LOGICA.innerHTML = "Você ainda precisa de " + notaNecessariaLogica + " na N3 para passar em Logica"    
     } 
 
     //Alterar os campos da N3 de Algoritmos baseado na aprovação
     if (!aprovacoes[4]){
-    
+        let somaAFAlg = 0
+        for(let i = 1; i < tabelaMatriz[4].length; i++){
+            somaAFAlg += tabelaMatriz[4][i]
+        }
+            mediaN2Alg = somaAFAlg / (tabelaMatriz[4].length - 1)
+
+        let maiorNotaAlg = Math.max(N1Alg, mediaN2Alg)
+
+        let notaNecessariaAlg = 12 - maiorNotaAlg       
+        N3ALG.innerHTML = "Você ainda precisa de " + notaNecessariaAlg + " na N3 para passar em Algoritmos"      
     } 
+
+}
+
+function checarNA(){
+    
+    let matriz = tabelaMatriz()
+    
+    for (let i = 0; i < matriz[i]; i++){
+        for (let j = 0; j < Matriz[i][j]; j++){
+            if (matriz[i][j] === -1 ){
+                Matriz[i].splice(j, 0)
+            }
+        }
+    }
+    return matriz;
 }
 
 function main(){
-    let tabela = tabelaMatriz()
+    let tabela = checarNA()
     let medias = calcularMedia(tabela)
     verificarAprovacao(medias)
     exibirResultado(medias)
     exibirAprovacao(medias)
+    necessarioN3(tabela)
 }

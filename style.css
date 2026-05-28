@@ -31,7 +31,7 @@ background-color: #b366ff
     max-width: 130px;
   }
   input{
-    width: 100px;
+    width: 100%;
     height: 30px;
     border: none;
     outline: none;
